@@ -1,0 +1,27 @@
+name: Giveaway
+version: '${project.version}'
+main: com.monkey.giveaway.Giveaway
+api-version: '1.20'
+authors: [MonkeyMoon104]
+commands:
+  giveaway:
+    description: Comando Giveaway
+    aliases: [gw]
+    permission: giveaway.use
+
+permissions:
+  giveaway.use:
+    description: Permesso per utilizzare i comandi del giveaway
+    default: true
+  giveaway.join:
+    description: Permesso per entrare in un giveaway
+    default: true
+  giveaway.start:
+    description: Permesso per avviare un giveaway
+    default: op
+  giveaway.finish:
+    description: Permesso per finire un giveaway
+    default: op
+  giveaway.reload:
+    description: Permesso per ricaricare la configurazione
+    default: op
