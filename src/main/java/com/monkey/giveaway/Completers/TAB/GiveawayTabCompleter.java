@@ -1,4 +1,4 @@
-package com.monkey.giveaway.Completers;
+package com.monkey.giveaway.Completers.TAB;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,7 +13,7 @@ public class GiveawayTabCompleter implements TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1) {
-            return Arrays.asList("start", "join", "finish", "reload");
+            return Arrays.asList("start", "join", "finish", "reload", "leave");
         }
         return new ArrayList<>();
     }

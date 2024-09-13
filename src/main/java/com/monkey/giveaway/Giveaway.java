@@ -1,8 +1,9 @@
 package com.monkey.giveaway;
 
-import com.monkey.giveaway.Commands.GiveawayCommand;
-import com.monkey.giveaway.Completers.GiveawayTabCompleter;
-import com.monkey.giveaway.Listener.PlayerListener;
+import com.monkey.giveaway.Commands.CommandManager.GiveawayCommandManager;
+import com.monkey.giveaway.Completers.TAB.GiveawayTabCompleter;
+import com.monkey.giveaway.Listener.PlayerJoinListener;
+import com.monkey.giveaway.Listener.PlayerQuitListener;
 import com.monkey.giveaway.Manager.GiveawayManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,9 +15,10 @@ public class Giveaway extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         this.giveawayManager = new GiveawayManager(this);
-        getCommand("giveaway").setExecutor(new GiveawayCommand(this, giveawayManager));
+        getCommand("giveaway").setExecutor(new GiveawayCommandManager(this, giveawayManager));
         getCommand("giveaway").setTabCompleter(new GiveawayTabCompleter());
-        getServer().getPluginManager().registerEvents(new PlayerListener(giveawayManager), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuitListener(giveawayManager), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(giveawayManager), this);
         getServer().getConsoleSender().sendMessage("Giveaway Plugin abilitato!");
     }
 

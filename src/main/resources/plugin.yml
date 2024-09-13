@@ -16,6 +16,9 @@ permissions:
   giveaway.join:
     description: Permesso per entrare in un giveaway
     default: true
+  giveaway.leave:
+    description: Permesso per uscire da un giveaway
+    default: true
   giveaway.start:
     description: Permesso per avviare un giveaway
     default: op
